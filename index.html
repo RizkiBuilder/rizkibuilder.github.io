@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2439342434227154"
+crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Dunia Minecraft</title>
@@ -14,9 +16,18 @@
         }
 
         body {
-            background: linear-gradient(#87CEEB 0%, #87CEEB 60%, #5d4037 60%, #5d4037 100%);
+            background: linear-gradient(lightblue 90%,green,brown);
             min-height: 100vh;
             padding: 20px;
+        }
+        .moon {
+            position:absolute;
+            z-index:-1;
+            top:0;
+            left:0;
+            background:yellow;
+            width:100px;
+            height:100px;
         }
 
         .kotak-utama {
@@ -102,11 +113,22 @@
             box-shadow: inset 3px 3px 0px 0px #373737, inset -3px -3px 0px 0px #c6c6c6;
             transform: translateY(2px);
         }
+        .star {
+            position:absolute;
+            background:white;
+            border-radius:50%;
+            box-shadow:0 0 6px white,0 0 12px #00c6ff;
+            animation:bintang 3s infinite;
+        }
 
         /* Animasi judul berkedip */
         @keyframes kedip {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
+        }
+        @keyframes bintang {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.1;}
         }
         .judul-kedip {
             animation: kedip 1.5s infinite;
@@ -114,6 +136,8 @@
     </style>
 </head>
 <body>
+
+    <div class="moon"></div>
 <div class="kotak-utama">
     <h1 class="judul-kedip">🌍 SELAMAT DATANG DI WEBSITE RIZKI BUILDER 🌍</h1>
     <p style="text-align:center;">Halaman ini dibuat khusus dengan gaya kotak blok favoritku!</p>
@@ -124,7 +148,7 @@
 
     
     <h2>🏡 Bangunan Favoritku</h2>
-    <img src="Videoshot_20260318_112549.jpg" class="gambar-mc">
+    <img src="videoshot_20260318_112549.jpg" class="gambar-mc">
 
     <h2>👷 Frofesi di minecraft</h2>
     <ul class="daftar-item">
@@ -136,32 +160,43 @@
     <div class="kotak-utama">
         <h2>MENU LAINYA</h2>
         <hr style="border: 2px solid #555; margin: 15px 0;">
-    <a href="eksplorasi.html" class="tombol" onclick="seed()">🔍 Seed Dunia Minecraft</a>
-    <a href="halaman_koleksi.html" class="tombol">🎥 Animasi Minecraft</a>
+    <button class="tombol" onclick="seed()">🔍 Seed Dunia Minecraft</button>
+    <a href="halaman_koleksi.html" class="tombol">📂 Animasi Minecraft</a>
     <button class="tombol" onclick="ubahMalam()">🎨 Ganti Latar Halaman malam</button>
     <button class="tombol" onclick="ubahSiang()">🎨 Ganti Latar Halaman siang</button>
     <a href="https://minecraft.fandom.com/id/wiki/Minecraft_Wiki" class="tombol" target="_blank">📖 Buka Wiki Minecraft</a>
     <a href="halaman_bangunan.html" class="tombol">🏡 Download Dunia</a>
     <a href="tentang_saya.html">------->Tentang saya<--------</a>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2439342434227154"
-     crossorigin="anonymous"></script>
   <script>
  // Fungsi 3: Ubah tampilan jadi malam
  function ubahMalam() {
-     document.body.style.background = "linear-gradient(#1a237e 0%, #1a237e 60%, #2e2e2e 60%, #2e2e2e 100%)";
-     alert("🌙 Wajah halaman berubah jadi mode MALAM!");
+   document.body.style.background ="linear-gradient(black,#0b0c10,darkblue)"; // warna malam
+   alert("🌙 Wajah halaman berubah jadi malam!");
+   
+   // Buat 50 bintang
+   for(let i = 0; i < 100; i++){
+     let star = document.createElement('div');
+     star.className = 'star';
+     star.style.left = Math.random() * 100 + '%';
+     star.style.top = Math.random() * 100 + '%';
+     star.style.width = Math.random() * 3 + 2 + 'px';
+     star.style.height = star.style.width;
+     star.style.animationDelay = Math.random() * 3 + 's'; // pakai satuan detik
+     document.body.appendChild(star);
+   }
  }
  //Fungsi 4: ubah tampilan jadi siang
  function ubahSiang() {
-     document.body.style.background = "linear-gradient(#87CEEB 0%, #87CEEB 60%, #5d4037 60%, #5d4037 100%)";
+     document.body.style.background = "linear-gradient(lightblue 90%,green,brown)";
      alert("🌙 Wajah halaman berubah jadi mode siang!");
+     document.querySelectorAll('.star').forEach(s => s.remove());
  }
  function seed() {
      alert("Kami masih mencari seed seed yang bagus,untuk sekarang belum ada");
  }
-            
- 
  </script>
-</div>
-</body>
+ </div>
+
+ </body>
  </html>
+</div>
